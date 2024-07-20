@@ -97,58 +97,60 @@ export default {
     <section class="w-[1280px]  h-[580px] md:h-[500px] flex items-center font-ComforantGaram min-w-0 max-w-full pt-0 md:pt-10 px-4 min-h-0 max-h-full">
     
       <div class="w-full h-full flex ">
-        <div class="w-full md:w-1/2 h-full space-y-6 ">
-            <div class="md:w-full md:h-[70%]">
+        <div class="w-full md:w-1/2 h-full   space-y-6 ">
+            <div class="w-full h-[65%] md:h-full   space-y-6">
+              <div class="md:w-full md:h-[70%] h-[70%]">
 
-            
-              <div class="w-full h-auto space-y-6 ">
-                <h1 class="text-4xl font-bold text-white drop-shadow-xl">Курсы  мяу! ноготочков!</h1>
-                <div class=" w-full h-fit flex flex-col message drop-shadow-lg">
-                  <div class="relative w-fit max-w-[600px] h-fit flex items-center border border-gray-600 bg-white/50 rounded-xl px-4 py-4">
-                    <p class="text-gray-600 md:text-base text-sm min-w-0">Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяууМяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу..Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу.</p>
-                    <img class="md:w-14 w-10" src="/src/assets/images/exc-mark-gray.svg">
-                  
+              
+                <div class="w-full h-auto space-y-6 ">
+                  <h1 class="text-4xl font-bold text-white drop-shadow-xl">Курсы  мяу! ноготочков!</h1>
+                  <div class=" w-full h-fit flex flex-col message drop-shadow-lg">
+                    <div class="relative w-fit max-w-[600px] h-fit flex items-center border border-gray-600 bg-white/50 rounded-xl px-4 py-4">
+                      <p class="text-gray-600 md:text-base text-sm min-w-0">Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяууМяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу..Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу.</p>
+                      <img class="md:w-14 w-10" src="/src/assets/images/exc-mark-gray.svg">
+                    
+                    </div>
                   </div>
-                </div>
-                <div class="w-full h-fit flex flex-col message drop-shadow-lg space-y-4">
-                  <div class="w-fit max-w-[500px] h-fit flex items-center border border-gray-600 bg-white/50 rounded-xl px-4 py-4">
-                    <p class="text-gray-600 md:text-base text-sm">Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу. </p>
-                    <img class="md:w-14 w-10" src="/src/assets/images/exc-mark-gray.svg">
+                  <div class="w-full h-fit flex flex-col message drop-shadow-lg space-y-4">
+                    <div class="w-fit max-w-[500px] h-fit flex items-center border border-gray-600 bg-white/50 rounded-xl px-4 py-4">
+                      <p class="text-gray-600 md:text-base text-sm">Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу. </p>
+                      <img class="md:w-14 w-10" src="/src/assets/images/exc-mark-gray.svg">
+                    </div>
+                    
                   </div>
                   
                 </div>
-                
+              </div>  
+              <div class="md:w-full md:h-[30%] h-[30%]">
+              <div class="relative w-full h-[60px] bg-black/70 flex items-center px-4 next-bar">
+                  <span class="text-white">// meow meow meow</span>
+                  <button class="w-[30px] h-[30px] flex justify-center items-center right-0 absolute mr-4 rounded-lg hover:bg-cyan-100 bg-white">
+                    <img id="next-mess" src="/src/assets/images/arrow-right-svgrepo-com.svg">
+                  </button>
               </div>
-            </div>
-            <div class="md:w-full md:h-[30%]">
-            <div class="relative w-full h-[60px] bg-black/70 flex items-center px-4 next-bar">
-                <span class="text-white">// meow meow meow</span>
-                <button class="w-[30px] h-[30px] flex justify-center items-center right-0 absolute mr-4 rounded-lg hover:bg-cyan-100 bg-white">
-                  <img id="next-mess" src="/src/assets/images/arrow-right-svgrepo-com.svg">
-                </button>
-            </div>
-            </div>
-          
-          
-          <div class=" w-full h-32 flex md:hidden justify-center glass-card rounded-2xl relative items-center">
-              <div class="w-1/2 h-full flex-col flex justify-center space-y-2 pl-2 z-50">
-                <button class="w-40 md:w-48 h-12 rounded-3xl text-white gradient-animation drop-shadow-lg">Актуальные курсы</button>
-                <button class="w-40 md:w-48 h-12   rounded-3xl text-white  bg-gradient-to-l from-[#9d9cac] to-[#b2aadf] hover:bg-gradient-to-r hover:from-black hover:to-black drop-shadow-lg">Обо мне</button>
-              </div>
-
-              <div class="w-1/2 h-full flex  items-center justify-center rounded-xl drop-shadow-xl">
-               
-
-                <ul class="font-Tektur text-xs list-disc space-y-2 drop-shadow-xl">
-                  <li class="text-gray-700 font-Tektur">Лучшие курсы!</li>
-                  <li class="text-gray-700 font-Tektur ">Профессиональный опыт!</li>
-                  <li class="text-gray-700 font-Tektur">Цена = Качество!</li>
-                </ul>
-               
               </div>
                 
+            </div>
+            <div class=" w-full h-32 flex md:hidden justify-center glass-card rounded-2xl relative items-center">
+                  <div class="w-1/2 h-full flex-col flex justify-center space-y-2 pl-2 z-50">
+                    <button class="w-40 md:w-48 h-12 rounded-3xl text-white gradient-animation drop-shadow-lg">Актуальные курсы</button>
+                    <button class="w-40 md:w-48 h-12   rounded-3xl text-white  bg-gradient-to-l from-[#9d9cac] to-[#b2aadf] hover:bg-gradient-to-r hover:from-black hover:to-black drop-shadow-lg">Обо мне</button>
+                  </div>
 
-          </div>
+                  <div class="w-1/2 h-full flex  items-center justify-center rounded-xl drop-shadow-xl">
+                  
+
+                    <ul class="font-Tektur text-xs list-disc space-y-2 drop-shadow-xl">
+                      <li class="text-gray-700 font-Tektur">Лучшие курсы!</li>
+                      <li class="text-gray-700 font-Tektur ">Профессиональный опыт!</li>
+                      <li class="text-gray-700 font-Tektur">Цена = Качество!</li>
+                    </ul>
+                  
+                  </div>
+                    
+
+                </div>
+           
          
         </div>
         <div class="hidden w-1/2 h-full md:flex md:flex-col  items-end space-y-2 min-w-0 max-w-full">
@@ -298,7 +300,7 @@ export default {
                 <span id="nickname" class="drop-shadow-xl underline">plasticmoth</span>
               </div>
               <div class="hidden w-2/3 h-full md:flex justify-center drop-shadow-xl">
-                <iframe  style="border-radius:12px" src="https://open.spotify.com/embed/track/5BgztqoQ6NHOhNg5yq8SUQ?utm_source=generator" width="240" height="100" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+               
               </div>
              
             </div>
@@ -306,7 +308,7 @@ export default {
             
               <div class="w-full h-full  gradient-animation-about rounded-xl flex flex-col relative drop-shadow-xl text-zinc-900">
                 <div class="w-full h-full absolute  opacity-30 rounded-xl"></div>
-                <div class="w-full h-full flex flex-col justify-start py-6 px-6 space-y-1">
+                <div class="w-full h-full flex flex-col justify-start py-4 md:py-6 px-6 space-y-1">
                   <span id="about-me " class="font-bold font-Montserrat text-base drop-shadow-xl">Обо мне</span>
                   <p class="font-Montserrat  text-sm drop-shadow-xl">
                     :XX_Tenderly_56: ユーエンミー:XX_Tenderly_56:
