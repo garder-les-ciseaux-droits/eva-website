@@ -73,8 +73,8 @@ export default {
 <template>
   <header class="w-full h-[680px] md:h-[780px] flex flex-col items-center pt-4 relative header overflow-x-hidden overflow-y-hidden">
     <div class="w-full h-full absolute bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
-    <nav class="w-full h-[80px] min-w-0 max-w-full flex justify-center px-4 " >
-      <div  class="w-full md:w-[1280px] h-[80px] text-white   flex items-center text-base rounded-3xl glass bg-black hover:bg-white/20 bg-black min-w-0 max-w-full">
+    <nav class="w-full h-[80px] min-w-0 max-w-full flex justify-center px-4" >
+      <div  class="w-full md:w-[1280px] h-[80px] text-white flex items-center text-base rounded-3xl glass bg-black hover:bg-white/20 bg-black min-w-0 max-w-full">
         <div class="w-1/2 md:h-full flex justify-start items-center space-x-2 min-w-0">
           <figure>
             <img class="w-14 h-10 md:w-14 md:h-14 rounded-l-3xl drop-shadow-lg" src="/src/assets/background/logo.png" alt="logo">
@@ -94,12 +94,12 @@ export default {
         </div>
       </div>
     </nav>  
-    <section class="w-[1280px]  h-[580px] md:h-[500px] flex items-center font-ComforantGaram min-w-0 max-w-full px-4 min-h-0 max-h-full">
+    <section class="w-[1280px]  h-[580px] md:h-[500px] flex items-center font-ComforantGaram min-w-0 max-w-full pt-0 md:pt-10 px-4 min-h-0 max-h-full">
     
       <div class="w-full h-full flex ">
-        <div class="w-full md:w-1/2 h-full space-y-6">
+        <div class="w-full md:w-1/2 h-full  space-y-6">
           
-          <div class="w-full  h-[300px] space-y-6">
+          <div class="w-full  h-auto space-y-6 ">
             <h1 class="text-4xl font-bold text-white drop-shadow-xl">Курсы  мяу! ноготочков!</h1>
             <div class=" w-full h-fit flex flex-col message drop-shadow-lg">
               <div class="relative w-fit max-w-[600px] h-fit flex items-center border border-gray-600 bg-white/50 rounded-xl px-4 py-4">
@@ -117,7 +117,7 @@ export default {
             </div>
             
           </div>
-          <div class="relative w-full md:w-[600px] h-[60px] bg-black/70 flex items-center px-4 next-bar">
+          <div class="relative w-full h-[60px] bg-black/70 flex items-center px-4 next-bar">
                 <span class="text-white">// meow meow meow</span>
                 <button class="w-[30px] h-[30px] flex justify-center items-center right-0 absolute mr-4 rounded-lg hover:bg-cyan-100 bg-white">
                   <img id="next-mess" src="/src/assets/images/arrow-right-svgrepo-com.svg">
@@ -144,24 +144,22 @@ export default {
           </div>
          
         </div>
-        <div class="hidden w-1/2 h-full md:flex md:flex-col items-end space-y-2">
+        <div class="hidden w-1/2 h-full md:flex md:flex-col  items-end space-y-2 min-w-0 max-w-full">
           <h2 class="hidden md:flex drop-shadow-xl font-Tektur text-gray-800 text-2xl">Топ курсики! >_<</h2>
-          <div class="hidden w-full h-full md:flex card-container relative justify-end pr-4 pt-2">
-            
-            <figure class="absolute card flex flex-col pt-2 items-center space-y-6  w-[200px] h-[300px] w-[200px] glass-card rounded-xl">
-              <img class=" w-[180px] h-[180px] drop-shadow-xl" src="/src/assets/images/header/whiteNail-circle.png">
+          <div class="hidden w-full h-full md:flex card-container  relative justify-end pt-2 min-w-0 space-x-1 max-w-full ">
+            <figure class="absolute card flex flex-col pt-2 items-center space-y-6 w-[200px] h-[300px] glass-card rounded-xl ">
+              <img class=" w-[180px] h-[180px] drop-shadow-xl min-w-0 max-w-full" src="/src/assets/images/header/whiteNail-circle.png">
               <figcaption class="text-gray-800 text-base ">
-                <button class="rounded-3xl glass-btn drop-shadow-xl border border-gray-300 hover:shadow-inner hover:text-black w-[160px] h-[50px]">200 Фриспинов!</button>
-              </figcaption>
-            </figure>
+                <button class="rounded-3xl glass-btn drop-shadow-xl border border-gray-300 hover:shadow-inner hov:text-black w-[160px] h-[50px]">200 Фриспинов!</button>
+              </figcaption>           </figure>
             <figure class="absolute card flex flex-col pt-2 items-center space-y-6 w-[200px] h-[300px] glass-card rounded-xl">
-              <img class=" w-[180px] h-[180px] drop-shadow-xl" src="/src/assets/images/header/pinkNail-circle.png">
+              <img class=" w-[180px] h-[180px]  drop-shadow-xl" src="/src/assets/images/header/pinkNail-circle.png">
               <figcaption class="text-gray-800 text-base">
                 <button class="rounded-3xl glass-btn drop-shadow-xl border border-gray-300 hover:shadow-inner hover:text-black w-[160px] h-[50px]">Высокие коэффициенты!</button>
               </figcaption>
             </figure>
             <figure class="absolute z-0 card flex flex-col pt-2 items-center space-y-6 w-[200px] h-[300px] glass-card rounded-xl">
-              <img class=" w-[180px] h-[180px] drop-shadow-xl" src="/src/assets/images/header/blueNail-circle.png">
+              <img class="  w-[180px] h-[180px]  drop-shadow-xl" src="/src/assets/images/header/blueNail-circle.png">
            
               <figcaption class="text-gray-800 text-base">
                 <button class="rounded-3xl glass-btn drop-shadow-xl hover:shadow-inner hover:text-black w-[160px] h-[50px]">Большие выигрыши!</button>
@@ -186,7 +184,7 @@ export default {
     </section>
   </header>
   <main class="w-full h-auto overflow-x-hidden">
-    <section class="w-full h-[1950px] md:h-[900px] bg-[url('/src/assets/images/background-main-16.webp')] bg-cover bg-center relative  flex flex-col items-center  text-white min-w-0 max-w-full min-w-0">
+    <section class="w-full h-[1950px] md:h-[900px] bg-[url('/src/assets/images/background-main-16.webp')] bg-cover bg-center relative  flex flex-col items-center  text-white min-w-0 max-w-full min-w-0 ">
       <div class="absolute w-full h-full bg-gradient-to-b from-black via-transparent to-black opacity-95"></div>
       <div class="w-full h-full absolute  pt-10">
         <div class="w-full h-[230px] flex items-center md:justify-start justify-center md:pl-24 px-4 md:px-0">
@@ -197,7 +195,7 @@ export default {
               </div>
             </div>
         </div>
-      <section class="w-full h-auto md:h-[500px] flex min-w-0 max-w-full">
+      <section class="w-full h-auto md:h-[500px] flex min-w-0 max-w-full px-4">
         <div id="card-container" class="hidden w-full h-full md:flex course-card-container justify-center relative ">
           <article class=" course-card drop-shadow-xl absolute course-glass-card rounded-3xl w-80 h-full flex flex-col items-start px-6 pt-4 bg-[url('/src/assets/images/cyberui.png')]"  v-for="course in courses" :key="course.id">
 
@@ -268,7 +266,7 @@ export default {
       </section>
       </div>
     </section>
-    <section class="w-full h-[1200px] md:h-[1000px] relative about-me-bg-mobile md:about-me-bg flex min-w-0 max-w-full">
+    <section class="w-full h-[1200px] md:h-[1000px] relative about-me-bg-mobile md:about-me-bg flex min-w-0 max-w-full ">
       <div class="absolute w-full h-1/4 bg-gradient-to-b from-black via-transparent to-transparent opacity-0 md:opacity-100 z-40"></div>
       <div class="absolute w-full h-full bg-gradient-to-b from-pink-200 via-transparent to-indigo-300 opacity-60 z-20"></div>
       <div class="w-full h-full grid grid-rows-2 justify-items-center items-center items-items-center md:flex md:justify-center md:items-center  md:space-x-24 z-50 min-w-0 max-w-full">
@@ -382,7 +380,7 @@ export default {
 
         <span class="text-black font-Tektur text-lg drop-shadow-2xl">// made by Ev for Eve</span>
         
-        <div class="flex space-x-4 drop-shadow-xl">
+        <div class="flex space-x-4 w-auto h-auto drop-shadow-xl">
           <a>
             <svg  fill="black" role="img" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Telegram</title><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
           </a>
@@ -634,7 +632,7 @@ nav.fixed{
 }
 
 .course-card{
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.8s ease, opacity 0.5s ease;
 }
 
 
