@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face { 
+    font-family: "ComforantGaram"; 
+    src: url("/src/assets/fonts/CormorantGaramond-Regular.ttf"); 
+} 
+
+@font-face { 
+    font-family: "Tektur"; 
+    src: url("/src/assets/fonts/Tektur-VariableFont_wdth,wght.ttf"); 
+} 
+
+@font-face{
+    font-family: "Montserrat";
+    src: url("/src/assets/fonts/Montserrat-VariableFont_wght.ttf");
+}
