@@ -4,19 +4,28 @@ export default {
 
   data() {
     return {
-      courses: [{ courseImage: 'https://raw.githubusercontent.com/garder-les-ciseaux-droits/echidna/main/uploads/course-nails1.webp',name: 'Маникюрчик для ньюбисов!', description: ['Научу кусатьца.', 'Расскажу про ноготочки всё-всё', 'Съем.'], idea: 'Если ты кошко-девочка, то это для тебя лучший вариант разобраться в мяу-сфере!', price: 1299}, {courseImage: 'https://raw.githubusercontent.com/garder-les-ciseaux-droits/echidna/main/uploads/course-nails2.webp', name: 'Маникюрчик для котеков!!!', description: ['Научу кусатьца.', 'Расскажу про ноготочки всё-всё', 'Съем.'],  idea: 'Стань профи, не выходя из дома! Обучись топовым видам маникюра, ремонту и дизайну ногтей!', price: 2999}, {courseImage: 'https://raw.githubusercontent.com/garder-les-ciseaux-droits/echidna/main/uploads/course-nails3.webp', name: 'Мяу-маникюрчик', description: ['Научу кусатьца.', 'Расскажу про ноготочки всё-всё', 'Съем.'],   idea: 'А если ты хочешь каждый денб иметь огромную миску рисаааа, то самый супер-пупер-мега-крутой курс ждёт тебя!', price: 4999}]
+      gl: null,
+      program: null,
+      startTime: Date.now(),
+      animationId: null,
+      courses: [{ courseImage: 'https://raw.githubusercontent.com/garder-les-ciseaux-droits/echidna/main/uploads/course-nails1.webp',name: 'Маникюрчик для ньюбисов!', description: ['Основы безупречного маникюра!', 'Всё для новичков!', 'Секреты идеальных ногтей!'], idea: 'Если ты кошко-девочка, то это для тебя лучший вариант разобраться в нашей сфере!', price: 1299}, {courseImage: 'https://raw.githubusercontent.com/garder-les-ciseaux-droits/echidna/main/uploads/course-nails2.webp', name: 'Маникюрчик для котеков!!!', description: ['Фантазируй с цветами!', 'Арт на каждом ногте!', 'Волшебные рисунки легко!'],  idea: 'Стань профи, не выходя из дома! Обучись топовым видам маникюра, ремонту и дизайну ногтей!', price: 2999}, {courseImage: 'https://raw.githubusercontent.com/garder-les-ciseaux-droits/echidna/main/uploads/course-nails3.webp', name: 'Мяу-маникюрчик', description: ['Уровень мастера!', 'Сложные техники — просто!', 'Будь экспертом красоты!'],   idea: 'А если ты хочешь каждый денб иметь огромную миску рисаааа, то самый супер-пупер-мега-крутой курс ждёт тебя!', price: 4999}]
+    }},
+    beforeDestroy() {
+      if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
     }
     },
     mounted(){
+    
     document.addEventListener('DOMContentLoaded', () => {
     const messages = [
             {
-                text1: 'Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяууМяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу..Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу.',
-                text2: 'Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу.'
+                text1: 'Мяу! 🐾 Привет-привет, дорогой друг! Хочешь стать настоящим мастером маникюра? Тогда ты попал в нужное местечко! 😸 Наши курсы — это волшебная страна ноготков, где твои мечты становятся реальностью! ✨',
+                text2: 'Я, твоя проводница в этот мир красоты — Мяу-тян! 🐾 И вместе мы будем создавать чудеса! 💅💖'
             },
             {
-                text1: 'Мяу мяу мяу 2, мяу, мяу, мяу 2. Мяу-мяу мяу-мяуу 2. Мяу мяу мяу 2, мяу, мяу, мяу 2. Мяу-мяу мяу-мяуу 2.',
-                text2: 'Мяу мяу мяу 2, мяу, мяу, мяу 2. Мяу-мяу мяу-мяуу 2. Мяу мяу мяу 2, мяу, мяу, мяу 2.'
+                text1: 'На наших курсах ты научишься не просто делать маникюр, а творить магию! 🎨 Мы расскажем тебе все секреты дизайна ногтей, как подобрать идеальные цвета, как делать милые рисунки и даже как стать популярным мастером в мире красоты! 🌸',
+                text2: 'И что самое главное? Все это в супер-удобном формате, который подходит даже для новичков! Ты сможешь учиться в своём ритме и получать тонны удовольствия от процесса! 😺'
             }
         ];
 
@@ -64,6 +73,108 @@ export default {
 
 
 
+    },
+    methods:{
+      initWebGL() {
+      const canvas = this.$refs.canvas;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      this.gl = canvas.getContext('webgl');
+      if (!this.gl) {
+        console.error('Unable to initialize WebGL. Your browser may not support it.');
+      }
+    },
+    initShader() {
+      const vertexShaderSource = `
+        attribute vec4 a_position;
+        void main() {
+          gl_Position = a_position;
+        }
+      `;
+
+      const fragmentShaderSource = `
+        precision mediump float;
+        uniform float iTime;
+        uniform vec2 iResolution;
+        void mainImage(out vec4 fragColor, vec2 fragCoord) {
+          float mr = min(iResolution.x, iResolution.y);
+          vec2 uv = (fragCoord * 2.0 - iResolution.xy) / mr;
+
+          float d = -iTime * 0.5;
+          float a = 0.0;
+          for (float i = 0.0; i < 8.0; ++i) {
+              a += cos(i - d - a * uv.x);
+              d += sin(uv.y * i + a);
+          }
+          d += iTime * 0.5;
+          vec3 col = vec3(cos(uv * vec2(d, a)) * 0.6 + 0.4, cos(a + d) * 0.5 + 0.5);
+          col = cos(col * cos(vec3(d, a, 2.5)) * 0.5 + 0.5);
+          fragColor = vec4(col, 1);
+        }
+        
+        void main() {
+          mainImage(gl_FragColor, gl_FragCoord.xy);
+        }
+      `;
+
+      const vertexShader = this.createShader(this.gl.VERTEX_SHADER, vertexShaderSource);
+      const fragmentShader = this.createShader(this.gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+      this.program = this.createProgram(vertexShader, fragmentShader);
+      this.gl.useProgram(this.program);
+
+      const positionLocation = this.gl.getAttribLocation(this.program, 'a_position');
+      const buffer = this.gl.createBuffer();
+      this.gl.bindBuffer(this.gl.ARRAY_BUFFER, buffer);
+      this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array([
+        -1, -1,
+         1, -1,
+        -1,  1,
+         1,  1,
+      ]), this.gl.STATIC_DRAW);
+      this.gl.enableVertexAttribArray(positionLocation);
+      this.gl.vertexAttribPointer(positionLocation, 2, this.gl.FLOAT, false, 0, 0);
+
+      this.gl.uniform2f(this.gl.getUniformLocation(this.program, 'iResolution'), window.innerWidth, window.innerHeight);
+    },
+    createShader(type, source) {
+      const shader = this.gl.createShader(type);
+      this.gl.shaderSource(shader, source);
+      this.gl.compileShader(shader);
+      if (!this.gl.getShaderParameter(shader, this.gl.COMPILE_STATUS)) {
+        console.error('An error occurred compiling the shaders:', this.gl.getShaderInfoLog(shader));
+        this.gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    },
+    createProgram(vertexShader, fragmentShader) {
+      const program = this.gl.createProgram();
+      this.gl.attachShader(program, vertexShader);
+      this.gl.attachShader(program, fragmentShader);
+      this.gl.linkProgram(program);
+      if (!this.gl.getProgramParameter(program, this.gl.LINK_STATUS)) {
+        console.error('Unable to initialize the shader program:', this.gl.getProgramInfoLog(program));
+        return null;
+      }
+      return program;
+    },
+    animate() {
+      this.animationId = requestAnimationFrame(this.animate);
+      this.render();
+    },
+    render() {
+      const time = (Date.now() - this.startTime) * 0.001;
+      this.gl.uniform1f(this.gl.getUniformLocation(this.program, 'iTime'), time);
+      this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
+    },
+    onWindowResize() {
+      const canvas = this.$refs.canvas;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      this.gl.viewport(0, 0, this.gl.drawingBufferWidth, this.gl.drawingBufferHeight);
+      this.gl.uniform2f(this.gl.getUniformLocation(this.program, 'iResolution'), window.innerWidth, window.innerHeight);
+    },
     }
 }
 
@@ -72,7 +183,7 @@ export default {
 
 <template>
   <header class="w-full h-[680px] md:h-[780px] flex flex-col items-center pt-4 relative header overflow-x-hidden overflow-y-hidden">
-    <div class="w-full h-full absolute bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
+    <!-- <div class="w-full h-full absolute bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div> -->
     <nav class="w-full h-[80px] min-w-0 max-w-full flex justify-center px-4" >
       <div  class="w-full md:w-[1280px] h-[80px] text-white flex items-center text-base rounded-3xl glass bg-black hover:bg-white/20 bg-black min-w-0 max-w-full">
         <div class="w-1/2 md:h-full flex justify-start items-center space-x-2 min-w-0">
@@ -95,7 +206,6 @@ export default {
       </div>
     </nav>  
     <section class="w-[1280px]  h-[580px] md:h-[500px] flex items-center font-ComforantGaram min-w-0 max-w-full pt-0 md:pt-10 px-4 min-h-0 max-h-full">
-    
       <div class="w-full h-full flex ">
         <div class="w-full md:w-1/2 h-full   space-y-6 ">
             <div class="w-full h-[65%] md:h-full   space-y-6">
@@ -106,14 +216,14 @@ export default {
                   <h1 class="text-4xl font-bold text-white drop-shadow-xl">Курсы  мяу! ноготочков!</h1>
                   <div class=" w-full h-fit flex flex-col message drop-shadow-lg">
                     <div class="relative w-fit max-w-[600px] h-fit flex items-center border border-gray-600 bg-white/50 rounded-xl px-4 py-4">
-                      <p class="text-gray-600 md:text-base text-sm min-w-0">Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяууМяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу..Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу.</p>
+                      <p class="text-gray-600 md:text-base text-sm min-w-0">Мяу! 🐾 Привет-привет, дорогой друг! Хочешь стать настоящим мастером маникюра? Тогда ты попал в нужное местечко! 😸 Наши курсы — это волшебная страна ноготков, где твои мечты становятся реальностью! ✨</p>
                       <img class="md:w-14 w-10" src="/src/assets/images/exc-mark-gray.svg">
                     
                     </div>
                   </div>
                   <div class="w-full h-fit flex flex-col message drop-shadow-lg space-y-4">
                     <div class="w-fit max-w-[500px] h-fit flex items-center border border-gray-600 bg-white/50 rounded-xl px-4 py-4">
-                      <p class="text-gray-600 md:text-base text-sm">Мяу мяу мяу, мяу, мяу, мяу. Мяу-мяу мяу-мяуу. Мяу мяу мяу, мяу, мяу, мяу. </p>
+                      <p class="text-gray-600 md:text-base text-sm">Я, твоя проводница в этот мир красоты — Мяу-тян! 🐾 И вместе мы будем создавать чудеса! 💅💖</p>
                       <img class="md:w-14 w-10" src="/src/assets/images/exc-mark-gray.svg">
                     </div>
                     
@@ -141,8 +251,8 @@ export default {
                   
 
                     <ul class="font-Tektur text-xs list-disc space-y-2 drop-shadow-xl">
-                      <li class="text-gray-700 font-Tektur">Лучшие курсы!</li>
-                      <li class="text-gray-700 font-Tektur ">Профессиональный опыт!</li>
+                      <li class="text-gray-700 font-Tektur">Твори ноготочки с профи!</li>
+                      <li class="text-gray-700 font-Tektur ">Красота в каждом мазке!</li>
                       <li class="text-gray-700 font-Tektur">Цена = Качество!</li>
                     </ul>
                   
@@ -159,19 +269,19 @@ export default {
             <figure class="absolute card flex flex-col pt-2 items-center space-y-6 w-[200px] h-[300px] glass-card rounded-xl ">
               <img class=" w-[180px] h-[180px] drop-shadow-xl min-w-0 max-w-full" src="/src/assets/images/header/whiteNail-circle.png">
               <figcaption class="text-gray-800 text-base ">
-                <button class="rounded-3xl glass-btn drop-shadow-xl border border-gray-300 hover:shadow-inner hov:text-black w-[160px] h-[50px]">200 Фриспинов!</button>
+                <button class="rounded-3xl glass-btn drop-shadow-xl border border-gray-300 hover:shadow-inner hov:text-black w-[160px] h-[50px]">Учись у профи!</button>
               </figcaption>           </figure>
             <figure class="absolute card flex flex-col pt-2 items-center space-y-6 w-[200px] h-[300px] glass-card rounded-xl">
               <img class=" w-[180px] h-[180px]  drop-shadow-xl" src="/src/assets/images/header/pinkNail-circle.png">
               <figcaption class="text-gray-800 text-base">
-                <button class="rounded-3xl glass-btn drop-shadow-xl border border-gray-300 hover:shadow-inner hover:text-black w-[160px] h-[50px]">Высокие коэффициенты!</button>
+                <button class="rounded-3xl glass-btn drop-shadow-xl border border-gray-300 hover:shadow-inner hover:text-black w-[160px] h-[50px]">Красота в каждом мазке!</button>
               </figcaption>
             </figure>
             <figure class="absolute z-0 card flex flex-col pt-2 items-center space-y-6 w-[200px] h-[300px] glass-card rounded-xl">
               <img class="  w-[180px] h-[180px]  drop-shadow-xl" src="/src/assets/images/header/blueNail-circle.png">
            
               <figcaption class="text-gray-800 text-base">
-                <button class="rounded-3xl glass-btn drop-shadow-xl hover:shadow-inner hover:text-black w-[160px] h-[50px]">Большие выигрыши!</button>
+                <button class="rounded-3xl glass-btn drop-shadow-xl hover:shadow-inner hover:text-black w-[160px] h-[50px]">Стань мастером маникюра!</button>
               </figcaption>
             </figure>
               <figure class="top-0 right-0 absolute z-0 -rotate-12"> <img class=" w-10 h-10 " src="/src/assets/images/arrow4-svgrepo-com.svg" alt="arrow">
@@ -192,8 +302,9 @@ export default {
       </div>
     </section>
   </header>
-  <main class="w-full h-auto overflow-x-hidden">
-    <section class="w-full h-[1950px] md:h-[900px] bg-[url('/src/assets/images/background-main-16.webp')] bg-cover bg-center relative  flex flex-col items-center  text-white min-w-0 max-w-full min-w-0 ">
+  <main class="relative w-full h-auto overflow-x-hidden">
+    <canvas ref="canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+    <section class="w-full h-[1950px] md:h-[900px] bg-[url('/src/assets/images/background-main-16.webp')]  bg-cover bg-center relative  flex flex-col items-center  text-white min-w-0 max-w-full min-w-0 ">
       <div class="absolute w-full h-full bg-gradient-to-b from-black via-transparent to-black opacity-95"></div>
       <div class="w-full h-full absolute  pt-10">
         <div class="w-full h-[230px] flex items-center md:justify-start justify-center md:pl-24 px-4 md:px-0">
@@ -205,10 +316,8 @@ export default {
             </div>
         </div>
       <section class="w-full h-auto md:h-[500px] flex min-w-0 max-w-full px-4">
-        <div id="card-container" class="hidden w-full h-full md:flex course-card-container justify-center relative ">
-          <article class=" course-card drop-shadow-xl absolute course-glass-card rounded-3xl w-80 h-full flex flex-col items-start px-6 pt-4 bg-[url('/src/assets/images/cyberui.png')]"  v-for="course in courses" :key="course.id">
-
-          
+        <div id="card-container" class="hidden w-full h-full md:flex course-card-container justify-center relative drop-shadow-lg">
+          <article class=" course-card drop-shadow-xl absolute course-glass-card shadow-xl rounded-3xl w-80 h-full flex flex-col items-start px-6 pt-4 bg-[url('/src/assets/images/cyberui.png')]"  v-for="course in courses" :key="course.id">
             <div class="w-full h-full px-4 pt-4 rounded-b-3xl">
               <div class="w-full h-2/3 flex flex-col space-y-4">
                 <div class="w-full h-32 border-b-2 border-white">
@@ -557,7 +666,7 @@ background-blend-mode: overlay;
 .course-glass-card{
   /* background: rgba(179, 181, 255, 0.407); */
 
-  background: rgba(22, 22, 22, 0.72);
+  background: rgba(22, 22, 22, 0.9);
 
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3); 
