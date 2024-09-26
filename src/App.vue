@@ -27,30 +27,38 @@ export default {
 </script>
 
 <template>
-  <div class="w-screen h-screen relative ">
-    <nav class="w-full h-[80px] min-w-0 max-w-full flex justify-center px-4 hidden mt-4" >
-      <div  class="w-full md:w-[1280px] h-[80px] text-white   flex items-center text-base rounded-3xl glass bg-black hover:bg-white/20 bg-black min-w-0 max-w-full">
+  <div class="w-screen h-screen relative">
+    <nav aria-label="Main Navigation" class="w-full h-[80px] min-w-0 max-w-full flex justify-center px-4 hidden mt-4">
+      <div class="w-full md:w-[1280px] h-[80px] text-white flex items-center text-base rounded-3xl glass bg-black hover:bg-white/20 min-w-0 max-w-full">
+        <!-- Logo and Site Name -->
         <div class="w-1/2 md:h-full flex justify-start items-center space-x-2 min-w-0">
-          <figure>
-            <img class="w-14 h-10 md:w-14 md:h-14 rounded-l-3xl drop-shadow-lg" src="/src/assets/background/logo.png" alt="logo">
-          </figure>
-          <div class="bg-gradient-to-r from-[#9d9cac] hover:text-cyan-100 drop-shadow-lg to-[#b2aadf] h-[40px] md:h-[55px] flex items-center w-[250px] px-2 rounded-r-xl">
-            <span class="font-bold drop-shadow-lg md:text-base text-xs">NAIL COURSES (MEOW)</span>
-          </div>
+          <a href="/" class="flex items-center space-x-2">
+            <figure>
+              <img class="w-14 h-10 md:w-14 md:h-14 rounded-l-3xl drop-shadow-lg" src="/src/assets/background/logo.png" alt="NAIL COURSES Logo">
+            </figure>
+            <span class="bg-gradient-to-r from-[#9d9cac] hover:text-cyan-100 drop-shadow-lg to-[#b2aadf] h-[40px] md:h-[55px] flex items-center w-[250px] px-2 rounded-r-xl font-bold md:text-base text-xs">
+              NAIL COURSES (MEOW)
+            </span>
+          </a>
         </div>
+        <!-- Navigation Links -->
         <div class="hidden w-1/2 h-full md:flex justify-center items-center space-x-14 font-Tektur">
-          <a class="  drop-shadow-lg">домой /</a>
-          <a class=" drop-shadow-lg">курсы /</a>
-          <a class=" drop-shadow-lg">об авторе /</a>
-          <a class=" drop-shadow-lg">социальные сети</a>
+          <a href="#" class="drop-shadow-lg">домой /</a>
+          <a href="#" class="drop-shadow-lg">курсы /</a>
+          <a href="#" class="drop-shadow-lg">об авторе /</a>
+          <a href="#" class="drop-shadow-lg">социальные сети</a>
         </div>
+        <!-- Mobile Menu Button -->
         <div class="w-1/2 h-full md:hidden flex justify-end items-center">
-          <img src="/src/assets/images/menu-alt-1-svgrepo-com.svg">
+          <button aria-label="Open Menu">
+            <img src="/src/assets/images/menu-alt-1-svgrepo-com.svg" alt="">
+          </button>
         </div>
       </div>
-    </nav>  
+    </nav>
     <MainLanding/>
   </div>
+  
 
 </template>
 
