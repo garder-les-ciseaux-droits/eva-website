@@ -76,7 +76,7 @@ export default {
 </script>
 
 <template>
-  <header class="w-full h-[680px] md:h-[780px] flex flex-col items-center pt-4 relative header overflow-x-hidden overflow-y-hidden">
+  <header class="w-full h-auto  md:pb-0 md:h-[780px] flex flex-col items-center pt-4 relative header overflow-x-hidden overflow-y-hidden">
     <!-- Навигационная панель -->
     <nav aria-label="Основная навигация" class="w-full h-[80px] min-w-0 max-w-full flex justify-center px-4">
       <div class="w-full md:w-[1280px] h-[80px] text-white flex items-center text-base rounded-3xl glass bg-black hover:bg-white/20 min-w-0 max-w-full">
@@ -105,11 +105,11 @@ export default {
       </div>
     </nav>
     <!-- Основной раздел -->
-    <section class="w-[1280px] h-[580px] md:h-[500px] flex items-center font-ComforantGaram min-w-0 max-w-full pt-0 md:pt-10 px-4 min-h-0 max-h-full">
+    <section class="w-[1280px] h-[40rem] md:h-[500px] flex items-center font-ComforantGaram min-w-0 max-w-full pt-0 md:pt-10 px-4 min-h-0 max-h-full">
       <div class="w-full h-full flex">
         <!-- Левый контент -->
-        <div class="w-full md:w-1/2 h-full space-y-6">
-          <div class="w-full h-[65%] md:h-full space-y-6">
+        <div class="w-full md:w-1/2 h-full space-y-10">
+          <div class="w-full h-[65%] md:h-full space-y-20 md:space-y-6">
             <!-- Заголовок и сообщения -->
             <div class="md:w-full md:h-[70%] h-[70%]">
               <div class="w-full h-auto space-y-6">
@@ -140,7 +140,7 @@ export default {
             </div>
           </div>
           <!-- Кнопки для мобильных устройств -->
-          <div class="w-full h-32 flex md:hidden justify-center glass-card rounded-2xl relative items-center">
+          <div class="w-full h-32  flex md:hidden justify-center glass-card rounded-2xl relative items-center">
             <div class="w-1/2 h-full flex-col flex justify-center space-y-2 pl-2 z-50">
               <button class="w-40 md:w-48 h-12 rounded-3xl text-white gradient-animation drop-shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">Актуальные курсы</button>
               <button class="w-40 md:w-48 h-12 rounded-3xl text-white bg-gradient-to-l from-[#9d9cac] to-[#b2aadf] hover:bg-gradient-to-r hover:from-black hover:to-black drop-shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">Обо мне</button>
